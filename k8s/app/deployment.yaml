@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: meu-app-laravel
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: meu-app-laravel
+  template:
+    metadata:
+      labels:
+        app: meu-app-laravel
+    spec:
+      containers:
+        - name: meu-app-laravel
+          image: nome-do-usuario/meu-app-laravel:latest
+          ports:
+            - containerPort: 8000
+          env:
+            - name: APP_ENV
+              value: production
+            # Adicione outras variáveis de ambiente necessárias aqui
+          volumeMounts:
+            - name: meu-app-laravel-data
+              mountPath: /var/www/html/storage
+      volumes:
+        - name: meu-app-laravel-data
+          persistentVolumeClaim:
+            claimName: meu-app-laravel-pvc
