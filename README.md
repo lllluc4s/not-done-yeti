@@ -57,7 +57,7 @@ Siga as etapas abaixo para configurar e executar o projeto:
 8. Para executar o projeto em contêineres, execute o seguinte comando:
 
     ```bash
-    docker-compose up -d
+    docker compose up -d
     ```
 
 9. Acesse o aplicativo em seu navegador em `http://localhost:8888`.
